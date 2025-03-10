@@ -1,9 +1,33 @@
-import static java.lang.Math.*;
-
 public class Segment {
-    public Point p1 = new Point();
-    public Point p2 = new Point();
-    public double length(Point p1, Point p2){
-        return sqrt(pow(abs(p1.x - p2.x), 2) + pow(abs(p1.y - p2.y), 2));
+    private Point start;
+    private Point end;
+
+    public Segment(Point start, Point end) {
+        this.start = start;
+        this.end = end;
+    }
+
+    public Segment() {
+    }
+    public Segment(double x_start, double y_start,
+                   double x_end, double y_end){
+        this.start = new Point(x_start, y_start);
+        this.end = new Point(x_end, y_end);
+    }
+
+    public Point getStart() {
+        return start;
+    }
+
+    public Point getEnd() {
+        return end;
+    }
+
+    public void setStart(Point start) {
+        this.start = start;
+    }
+
+    public void setEnd(Point end) {
+        this.end = end;
     }
 }
