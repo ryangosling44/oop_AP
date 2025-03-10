@@ -41,4 +41,8 @@ public class Point {
         nP.y = y + dy;
     }
 
+    public Point(Point toCopy){
+        this.x = toCopy.getX();
+        this.y = toCopy.getY();
+    }
 }
