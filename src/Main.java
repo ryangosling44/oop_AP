@@ -5,6 +5,6 @@ public class Main {
         Point P = new Point();
         P.x = 3.0;
         P.y = 5.0;
-        System.out.println(P.toSvg());
+        System.out.println(P.toSvg()); //bruh
     }
 }
