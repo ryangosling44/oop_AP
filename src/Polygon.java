@@ -1,9 +1,14 @@
 import java.util.ArrayList;
 
 public class Polygon {
+    private Style gangnam;
     private ArrayList<Point> points;
 
     public Polygon(ArrayList<Point> points) {
+        this.points = points;
+    }
+    public Polygon(ArrayList<Point> points, Style gangnam) {
+        this.gangnam = gangnam;
         this.points = points;
     }
 
@@ -24,8 +29,18 @@ public class Polygon {
             midlle += p.getX() + "," +p.getY() + " ";
         }
 
-        String ending =        "\" style=\"fill:lime;stroke:purple;stroke-width:3\" />\n" +
+        String ending =        "\" " +
+                gangnam.toSvg() +
+                "=\" />\n" +
                 "</svg>";
         return beginning + midlle + ending;
+    }
+
+    public Style getGangnam() {
+        return gangnam;
+    }
+
+    public void setGangnam(Style gangnam) {
+        this.gangnam = gangnam;
     }
 }
