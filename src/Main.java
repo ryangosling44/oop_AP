@@ -1,35 +1,26 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-
-        Point p1 = new Point();
-        p1.setX(5);
-        p1.setY(6);
-
-        Point p2 = new Point(7,8);
-
-        Point p3 = new Point(p1);
-        Point p4 = new Point(p2);
-
-
-        Segment s1 = new Segment(p1,p2);
-        Segment s2 = new Segment(p3,p4);
-        p1.setX(15);
-        p1.setY(12);
-        p2.setX(15);
-        p2.setY(8);
-
+//        Point start = new Point(0,40);
+//        Point end = new Point(30,70);
+//        Segment line = new Segment(new Point(start), new Point(end));
+//        start.setY(200);
         ArrayList<Point> points = new ArrayList<>();
-        points.add(new Point(90,70));
-        points.add(new Point(80,70));
-        points.add(new Point(70,70));
-        points.add(new Point(60,70));
-        points.add(new Point(50,70));
-
+        points.add(new Point(0,0));
+        points.add(new Point(20,50));
+        points.add(new Point(15, 80));
         Polygon poly = new Polygon(points);
+
+        try{
+            FileWriter fw = new FileWriter("ksztalty.svg");
+            fw.write(poly.toSvg());
+            fw.close();
+        }catch (IOException e){
+            System.out.println("Not hello");
+        }
 
 
     }
