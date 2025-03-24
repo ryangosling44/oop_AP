@@ -31,6 +31,10 @@ public class Segment {
         this.end = new Point(x_end, y_end);
     }
 
+    public Segment perpendicular(Segment segment){
+        return new Segment();
+    }
+
     @Override
     public String toString() {
         return "Segment{" +
