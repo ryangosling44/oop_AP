@@ -1,3 +1,4 @@
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -14,12 +15,19 @@ public class Main {
         points.add(new Point(0,0));
         points.add(new Point(20,50));
         points.add(new Point(15, 80));
-        svgScene picture = new svgScene(1000, 1000);
-        Shape poly = new Polygon(points, new Style("#FF0000", "#00FFFF",2));
-        Shape ellipse = new Circle(new Style("#FF0000", "#000000", 3),
-                new Point(200, 100),30);
-        picture.getShapes().add((poly));
-        picture.getShapes().add(ellipse);
+        SvgScene picture = new SvgScene(1000,10000);
+ //       Shape poly = new SolidFilledPolygon(points, "#FF0000");
+//        Shape ellipse = new Circle(new Style("#FF8888","#000000", 3),
+//                new Point(200,100),30);
+ //       picture.getShapes().add(poly);
+
+        Shape simplePolygon = new Polygon(points);
+        Shape coloredPolygon = new SolidFillShapeDecorator(simplePolygon, "#0000FF");
+        Shape simpleEllipsis = new Ellipse(new Point(50, 50), 50, 50);
+        Shape greenEllipsis = new SolidFillShapeDecorator(simpleEllipsis, "#00FF00");
+        picture.getShapes().add(coloredPolygon);
+        picture.getShapes().add(greenEllipsis);
+//        picture.getShapes().add(ellipse);
         try{
             FileWriter fw = new FileWriter("ksztalty.svg");
             fw.write(picture.toSvg());
@@ -27,7 +35,5 @@ public class Main {
         }catch (IOException e){
             System.out.println("Not hello");
         }
-
-
     }
 }

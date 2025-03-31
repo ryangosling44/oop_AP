@@ -1,16 +1,16 @@
 import java.util.ArrayList;
 
-public class svgScene {
+public class SvgScene {
     private double width, height;
     private ArrayList<Shape> shapes;
 
-    public svgScene(double width, double height) {
+    public SvgScene(double width, double height) {
         this.width = width;
         this.height = height;
         shapes = new ArrayList<>();
     }
 
-    public svgScene() {
+    public SvgScene() {
         shapes = new ArrayList<>();
     }
 
